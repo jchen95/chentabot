@@ -9,9 +9,14 @@
   "author": "Jason Chen",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.2",
+    "google-auth-library": "^0.12.0",
+    "googleapis": "^22.2.0",
     "mongoose": "^5.0.6",
     "nodemon": "^1.15.1",
+    "pug": "^2.0.0-rc.4",
     "randomstring": "^1.1.5",
-    "tmi.js": "^1.2.1"
+    "tmi.js": "^1.2.1",
+    "youtube-api": "^2.0.9"
   }
 }

@@ -1,0 +1,39 @@
+
+body {
+    font-family: 'VT323';
+    color: white;
+    background-image: url('https://media.giphy.com/media/dTQzKgfWqniuc/giphy.gif')
+}
+
+.container {
+    font-family: 'VT323';
+    color:white;
+    width: 75%;
+    text-align: center;
+}
+
+.container h1 {
+    font-family: 'VT323';
+    margin:auto;
+    margin-top:2%;
+    font-size: 6.0em;
+    color:white;
+    display: block;
+    text-align:center;
+}
+
+table {
+    font-size: 2em;
+    font-family: 'VT323';
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 75%;
+    margin-left:13.5%;
+}
+
+td, th {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
