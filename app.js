@@ -106,7 +106,7 @@ client.on('chat', function(channel,user,message,self){
         console.log(err)
       } else {
         if (Username.points < 50) {
-          client.say('chentaii', "you don't have rnough points nerd LUL")
+          client.say('chentaii', "you don't have enough points nerd LUL")
         } else if (Username.points > 50) {
         var id = message.split('=')
         var youtubeId = id[1]

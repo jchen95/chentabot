@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Jason Chen",
   "license": "ISC",
@@ -14,7 +15,7 @@
     "googleapis": "^22.2.0",
     "mongoose": "^5.0.6",
     "nodemon": "^1.15.1",
-    "pug": "^2.0.0-rc.4",
+    "pug": "^2.0.0",
     "randomstring": "^1.1.5",
     "tmi.js": "^1.2.1",
     "youtube-api": "^2.0.9"
