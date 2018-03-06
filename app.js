@@ -20,8 +20,8 @@ app.set('views', path.join(__dirname,'views'));
 app.use(express.static("public"))
   
 //CHECK MONGODB CONNECTION & ERRORS
-// mongoose.connect('mongodb://localhost/chentabot')
-mongoose.connect("mongodb://jason:hydro@ds257858.mlab.com:57858/chentabot")
+
+mongoose.connect(process.env.DATABASEURL)
 
 db.once('open', function() {
   console.log('connected to mongodb')                        
@@ -109,7 +109,7 @@ client.on('chat', function(channel,user,message,self){
                          'snippet.resourceId.kind': 'youtube#video',
                          'snippet.resourceId.videoId': youtubeId,
                          'snippet.position': ''
-              }}, youtube.playlistItemsInsert);
+              }}, playlistItemsInsert);
         });
         client.say('chentaii','Your song request was processed')
         Username.points = Username.points - 50
