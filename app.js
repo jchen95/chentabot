@@ -18,15 +18,17 @@ var chentabot = require('./gambling modules/index')
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname,'views'));
 app.use(express.static("public"))
-
+  
 //CHECK MONGODB CONNECTION & ERRORS
-mongoose.connect('mongodb://localhost/chentabot')
+// mongoose.connect('mongodb://localhost/chentabot')
+mongoose.connect("mongodb://jason:hydro@ds257858.mlab.com:57858/chentabot")
+
 db.once('open', function() {
-  console.log('connected to mongodb')
+  console.log('connected to mongodb')                        
 });
-db.on('error', function() {
-  console.log(err);
-});
+db.on('error', function(err){
+  console.log(err)
+})
 
 
 
@@ -49,22 +51,9 @@ app.listen(3000, '0.0.0.0', function() {
 });
 
 
-// client.on("chat", function(channel,user,message,self){
-//   var messageLength = message.split()
-//   if (message.indexOf("!songrequest") === 0 && messageLength.length === 2)
-// })
 
 
 
-
-  
-
-
-
-
-
-
-  
 
 
 
@@ -99,6 +88,8 @@ client.on('connected', function(address,port) {
   client.say("chentaii", "rev up those browsers, cuz chentabot is in chatroom MingLee ")
 });
 
+
+//songrequest
 client.on('chat', function(channel,user,message,self){
   if (message.includes('!songrequest') == true){
     User.findOne({username:user.username}, function(err,Username){
