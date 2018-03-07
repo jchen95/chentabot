@@ -237,6 +237,7 @@ client.on('chat', function(channel,user,message,self) {
               points = points + gambleAmount
                 client.say('chentaii', "@"+ Username.username + " You won " + gambleAmount + 
                 'chentapoints PogChamp, you now have ' + points + ' chentapoints PogChamp' )
+                Username.points = points
                 Username.save(function(err,updatedPoints){
                   if(err){
                     console.log(err)
