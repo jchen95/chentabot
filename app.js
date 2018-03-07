@@ -320,7 +320,7 @@ function clockStart(Username){
 //Points logic
 function timer(name, ejl) {
   var count = name.points
-  var ejl = setInterval(counter, 30000);
+  var ejl = setInterval(counter, 60000);
   var twitchName = {
     name: name.username,
     intId: ejl
