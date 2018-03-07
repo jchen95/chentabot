@@ -33,7 +33,7 @@ db.on('error', function(err){
 
 
 app.get('/', function(req,res){
-  User.find({$nor : [{username : "chentabot"} , {username : "nightbot" }]}).sort({points: -1}).exec(function(err, users) { 
+  User.find({$nor : [{username : "chentabot"} , {username : "nightbot" }, {username : "chentaii"}]}).sort({points: -1}).exec(function(err, users) { 
     res.render('index', {
     users: users
   }) })
