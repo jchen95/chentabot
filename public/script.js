@@ -28,8 +28,14 @@ function onYouTubePlayerAPIReady()
 
 
 function onPlayerReady(event) {
-  event.target.loadPlaylist(arr);
-  console.log(player.getPlaylist())
+  // event.target.loadPlaylist(arr);
+  player.playVideo();
+  
+buildApiRequest('GET',
+'/youtube/v3/playlistItems',
+{'maxResults': '25',
+ 'part': 'snippet,contentDetails',
+ 'playlistId': 'PLQ3bg2MOQ-107PJB3-LWkDg85eIRB-zIR'});
 }
 
 
@@ -38,11 +44,8 @@ function onPlayerReady(event) {
 
 function stopVideo() {
   player.stopVideo();
+  
 }
-
-
-
-
 
 
 var GoogleAuth;
@@ -145,7 +148,7 @@ function executeRequest(request) {
       list = response
     console.log(list)
     for(var i = 0; i < list.items.length; i++) {
-      $("#songs").append('<tr><td>' + "#" + i + "   " + list.items[i].snippet.title + '</td></tr>')
+      $("#songs").append('<tr><td>'+ list.items[i].snippet.title + '</td></tr>')
     }
   });
 }
@@ -178,11 +181,6 @@ function defineRequest() {
   // See full sample for buildApiRequest() code, which is not 
 // specific to a particular API or API method.
 
-buildApiRequest('GET',
-              '/youtube/v3/playlistItems',
-              {'maxResults': '25',
-               'part': 'snippet,contentDetails',
-               'playlistId': 'PLQ3bg2MOQ-107PJB3-LWkDg85eIRB-zIR'});
 
 }
 
@@ -192,10 +190,11 @@ console.log(list)
 function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.ENDED) {
     
-buildApiRequest('DELETE',
-'/youtube/v3/playlistItems',
-{'id': list.items[0].id,
- 'onBehalfOfContentOwner': ''});
-  }
+  buildApiRequest('DELETE',
+  '/youtube/v3/playlistItems',
+  {'id': list.items[0].id,
+  'onBehalfOfContentOwner': ''});
+  location.reload()
+    }
 }
 

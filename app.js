@@ -109,7 +109,7 @@ client.on('chat', function(channel,user,message,self){
                          'snippet.resourceId.kind': 'youtube#video',
                          'snippet.resourceId.videoId': youtubeId,
                          'snippet.position': ''
-              }}, playlistItemsInsert);
+              }}, youtube.playlistItemsInsert);
         });
         client.say('chentaii','Your song request was processed')
         Username.points = Username.points - 50
