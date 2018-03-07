@@ -14,11 +14,7 @@ function onYouTubePlayerAPIReady()
         {
           height: '390',
           width: '640',
-          playerVars: 
-          {
-            listType:'playlist',
-            list: 'PLQ3bg2MOQ-107PJB3-LWkDg85eIRB-zIR'
-          },
+          videoId: 'u1zgFlCw8Aw',
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -28,7 +24,7 @@ function onYouTubePlayerAPIReady()
 
 
 function onPlayerReady(event) {
-  // event.target.loadPlaylist(arr);
+  event.target.loadPlaylist({list: "PLQ3bg2MOQ-107PJB3-LWkDg85eIRB-zIR", index: 0});
   player.playVideo();
   
 buildApiRequest('GET',
