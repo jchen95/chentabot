@@ -2,15 +2,11 @@ extends layout
 
 block content
   .container.animated.fadeIn
-      h1 Song Requests
-      button#execute-request-button Authorize
+      h1 SONG QUEUE
       br
       #player
       table#songs
 
-  script(src='adminscript.js')
+  script(src='script.js')
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
   script(async='', defer='', src='https://apis.google.com/js/api.js', onload='this.onload=function(){};handleClientLoad()', onreadystatechange="if (this.readyState === 'complete') this.onload()")
-
-
-      

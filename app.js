@@ -21,6 +21,7 @@ app.use(express.static("public"))
   
 //CHECK MONGODB CONNECTION & ERRORS
 
+// mongoose.connect('mongodb://localhost/portfolio_app')
 mongoose.connect(process.env.DATABASEURL)
 
 db.once('open', function() {
@@ -39,10 +40,16 @@ app.get('/', function(req,res){
   }) })
 });
 
-
-
 app.get('/songrequest', function(req,res){
   res.render('songrequest')
+})
+
+app.get('/songqueue', function(req,res){
+  res.render('songrequest')
+})
+
+app.get('/commands', function(req,res){
+  res.render('commands')
 })
 
 
@@ -111,7 +118,7 @@ client.on('chat', function(channel,user,message,self){
                          'snippet.position': ''
               }}, youtube.playlistItemsInsert);
         });
-        client.say('chentaii','Your song request was processed')
+        client.say('chentaii', Username.username + 'Your song request was processed')
         Username.points = Username.points - 50
         Username.save(function(err,updatedPoints){
           if (err) {

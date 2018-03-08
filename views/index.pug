@@ -1,17 +1,17 @@
 extends layout
 
 block content
-    .container.animated.fadeIn
-      h1 HIGH SCORES
-      table
-        tr
-          th Rank
-          th Name
-          th Points
-        tr
-          td.first 1st
-          td.first= users[0].username
-          td.first= users[0].points
+  .container.animated.fadeIn
+    h1 HIGH SCORES
+    table
+      tr
+        th Rank
+        th Name
+        th Points
+      tr
+        td.first 1st
+        td.first= users[0].username
+        td.first= users[0].points
         tr
           td.second 2nd
           td.second= users[1].username

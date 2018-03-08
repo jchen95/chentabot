@@ -25,9 +25,7 @@ body {
     margin:auto;
     margin-top:2%;
     font-size: 6.0em;
-    background: -webkit-linear-gradient(#eee, #333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color:white;
     display: block;
     text-align:center;
 }
@@ -60,5 +58,5 @@ td, th {
 }
 
 .third {
-    color: brown;
+    color: #a36b42;
 }

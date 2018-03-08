@@ -1,4 +1,49 @@
 var list;
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
+
+
+
+
+function onYouTubePlayerAPIReady() 
+{
+        player = new YT.Player('player', 
+        {
+          height: '390',
+          width: '640',
+          videoId: 'u1zgFlCw8Aw',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+}
+
+
+function onPlayerReady(event) {
+  event.target.loadPlaylist({list: "PLQ3bg2MOQ-107PJB3-LWkDg85eIRB-zIR", index: 0});
+  player.playVideo();
+  
+buildApiRequest('GET',
+'/youtube/v3/playlistItems',
+{'maxResults': '25',
+ 'part': 'snippet,contentDetails',
+ 'playlistId': 'PLQ3bg2MOQ-107PJB3-LWkDg85eIRB-zIR'});
+}
+
+
+
+
+
+function stopVideo() {
+  player.stopVideo();
+  
+}
+
+
 var GoogleAuth;
 
 /**
@@ -131,12 +176,20 @@ function buildApiRequest(requestMethod, path, params, properties) {
 function defineRequest() {
   // See full sample for buildApiRequest() code, which is not 
 // specific to a particular API or API method.
-buildApiRequest('GET',
-'/youtube/v3/playlistItems',
-{'maxResults': '25',
- 'part': 'snippet,contentDetails',
- 'playlistId': 'PLQ3bg2MOQ-107PJB3-LWkDg85eIRB-zIR'});
+
 
 }
 
 
+console.log(list)
+
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.ENDED) {
+    
+  buildApiRequest('DELETE',
+  '/youtube/v3/playlistItems',
+  {'id': list.items[0].id,
+  'onBehalfOfContentOwner': ''});
+  location.reload()
+    }
+}
