@@ -145,6 +145,12 @@ client.on("chat", function(channel,user,message,self) {
   ;
   });
 
+//leaderboard command
+client.on("chat", function(channel,user,message,self) {
+  if (message === "!leaderboard")
+  client.say("chentaii", "https://lit-plains-36839.herokuapp.com/")
+  ;
+  });
 
 //BAN MESSAGE
 client.on("ban", function (channel, username, reason) {

@@ -5,6 +5,14 @@ body {
     background-image: url('https://media.giphy.com/media/dTQzKgfWqniuc/giphy.gif')
 }
 
+.container a { color: inherit; } 
+
+.container a:hover 
+{
+     color:blue; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
 .container {
     font-family: 'VT323';
     color:white;
@@ -17,11 +25,16 @@ body {
     margin:auto;
     margin-top:2%;
     font-size: 6.0em;
-    color:white;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     display: block;
     text-align:center;
 }
 
+.container btn {
+    font-size: 2.0em
+}
 table {
     font-size: 2em;
     font-family: 'VT323';
@@ -36,4 +49,16 @@ td, th {
     color: white;
     text-align: center;
     padding: 8px;
+}
+
+.first {
+    color: gold;
+}
+
+.second {
+    color: silver;
+}
+
+.third {
+    color: brown;
 }
