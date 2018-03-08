@@ -45,7 +45,7 @@ app.get('/songrequest', function(req,res){
 })
 
 app.get('/songqueue', function(req,res){
-  res.render('songrequest')
+  res.render('songrequeue')
 })
 
 app.get('/commands', function(req,res){
