@@ -1,6 +1,6 @@
 
 body {
-    font-family: 'VT323';
+    font-family:'Aldrich', sans-serif;
     color: white;
     background-image: url('https://media.giphy.com/media/dTQzKgfWqniuc/giphy.gif')
 }
@@ -14,16 +14,32 @@ body {
      cursor:pointer;  
 }
 .container {
-    font-family: 'VT323';
+    font-family: 'Aldrich', sans-serif;
     color:white;
     width: 75%;
     text-align: center;
 }
 
-
+.container2 {
+    font-family: 'Aldrich', sans-serif;
+    width: 85%;
+    color:white;
+    text-align: center;
+    margin:auto;
+}
 
 .container h1 {
-    font-family: 'VT323';
+    font-family: 'Aldrich', sans-serif;
+    margin:auto;
+    margin-top:2%;
+    font-size: 6.0em;
+    color:white;
+    display: block;
+    text-align:center;
+}
+
+.container2 h1 {
+    font-family: 'Aldrich', sans-serif;
     margin:auto;
     margin-top:2%;
     font-size: 6.0em;
@@ -37,7 +53,7 @@ body {
 }
 table {
     font-size: 2em;
-    font-family: 'VT323';
+    font-family: 'Aldrich', sans-serif;
     table-layout: auto;
     border-collapse: collapse;
     width: 75%;
@@ -48,6 +64,14 @@ td, th {
     font-weight: bold;
     color: white;
     text-align: center;
+    padding: 8px;
+}
+
+.container2 td, .container2 th {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border: 5px solid white;
     padding: 8px;
 }
 

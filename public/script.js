@@ -99,7 +99,7 @@ function executeRequest(request) {
       list = response
     console.log(list)
     for(var i = 0; i < list.items.length; i++) {
-      $("#songs").append('<tr><td>'+ list.items[i].snippet.title + '</td></tr>')
+      $("#songs").append('<tr>' + '<td>' + "#" + i + '</td>' + '<td>'+ list.items[i].snippet.title + '</td></tr>')
     }
   });
 }

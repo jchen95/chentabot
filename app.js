@@ -9,6 +9,7 @@ var request = require('request')
 var youtube = require('./youtube.js')
 var fs = require('fs')
 var casino = false;
+var songRequestArr = []
 var currentViewers = [];
 
 
@@ -21,7 +22,7 @@ app.use(express.static("public"))
   
 //CHECK MONGODB CONNECTION & ERRORS
 
-// mongoose.connect('mongodb://localhost/portfolio_app')
+// mongoose.connect('mongodb://localhost/chentabot')
 mongoose.connect(process.env.DATABASEURL)
 
 db.once('open', function() {
@@ -46,6 +47,7 @@ app.get('/songrequest', function(req,res){
 
 app.get('/songqueue', function(req,res){
   res.render('songqueue')
+  
 })
 
 app.get('/commands', function(req,res){
@@ -93,10 +95,10 @@ client.on('connected', function(address,port) {
   client.say("chentaii", "rev up those browsers, cuz chentabot is in chatroom MingLee ")
 });
 
+//SongRequests
 
-//songrequest
 client.on('chat', function(channel,user,message,self){
-  if (message.includes('!songrequest') == true){
+  if (message.includes('!songrequest') == true && message.split(' ').length == 2){
     User.findOne({username:user.username}, function(err,Username){
       if (err) {
         console.log(err)
@@ -106,6 +108,7 @@ client.on('chat', function(channel,user,message,self){
         } else if (Username.points > 50) {
         var id = message.split('=')
         var youtubeId = id[1]
+        songRequestArr.push([Username.username, youtubeId])
         fs.readFile('client_secret.json', function processClientSecrets(err, content) {
           if (err) {
             console.log('Error loading client secret file: ' + err);
@@ -130,6 +133,9 @@ client.on('chat', function(channel,user,message,self){
     }) 
   }
 })
+
+
+
 
 //User says hi to bot
 client.on("chat", function(channel,user,message,self) {
