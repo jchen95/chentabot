@@ -118,7 +118,7 @@ client.on('chat', function(channel,user,message,self){
                          'snippet.position': ''
               }}, youtube.playlistItemsInsert);
         });
-        client.say('chentaii', Username.username + 'Your song request was processed')
+        client.say('chentaii', "@"+ Username.username + ' Your song request was processed')
         Username.points = Username.points - 50
         Username.save(function(err,updatedPoints){
           if (err) {
