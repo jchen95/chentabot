@@ -8,6 +8,7 @@ var randomstring = require('randomstring')
 var request = require('request')
 var youtube = require('./youtube.js')
 var fs = require('fs')
+require('dotenv').config()
 var casino = false;
 var songRequestArr = []
 var currentViewers = [];
@@ -22,7 +23,6 @@ app.use(express.static("public"))
   
 //CHECK MONGODB CONNECTION & ERRORS
 
-// mongoose.connect('mongodb://localhost/chentabot')
 mongoose.connect(process.env.DATABASEURL)
 
 db.once('open', function() {
@@ -56,16 +56,6 @@ app.get('/commands', function(req,res){
 
 
 app.listen(process.env.PORT || 3000)
-
-
-
-
-
-
-
-
-
-
 
 
 
